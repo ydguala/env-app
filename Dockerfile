@@ -14,4 +14,4 @@ USER user1
 
 EXPOSE 8080/tcp
 
-CMD [ "python3", "-u","api-server.py"]
+ENTRYPOINT [ "python3", "-u","api-server.py"]

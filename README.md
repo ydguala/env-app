@@ -35,3 +35,8 @@ It expose some endpoints that only allow method `GET` for the web app to retriev
 |/\${app_name}/api/hostname| GET | Returns a json with the key 'HOSTNAME' and value of the host that is running the Flask app | `{"HOSTNAME": "my_laptop"}` |
 
 
+## Run as a Container
+
+```
+podman run -dt -p 8080:8080 ydoyarzo/env-api:latest APP1 PYTHON_VERSION byebye
+```
