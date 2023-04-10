@@ -41,7 +41,7 @@ spec:
         - name: VERSION
           value: "1.0"
         - name: CLUSTER
-          value: "MAD"
+          value: "BCN"
         - name: APP_NAME
           value: "IMPACT"
         - name: POD_NAME
