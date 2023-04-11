@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: env-api-path
+spec:
+  selector:
+    app: env-api-path
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: env-api-path
+spec:
+  selector:
+    matchLabels:
+      app: env-api-path
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: env-api-path
+    spec:
+      containers:
+      - name: env-api-path
+        image: ydguala/env-api:latest
+        args: ["POD_NAME", "POD_NAMESPACE", "POD_NODE_NAME","CLUSTER","APP_NAME","VERSION"]
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: VERSION
+          value: "1.0"
+        - name: CLUSTER
+          value: "MAD"
+        - name: APP_NAME
+          value: "SIA"
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: POD_NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
