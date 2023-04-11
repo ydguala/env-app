@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: env-api-path
+  annotations:
+    haproxy.router.openshift.io/rewrite-target: /
+spec:
+  host: common.apps.neo.example.es
+  path: "/sia"
+  to:
+    kind: Service
+    name: env-api-path
+    weight: 100
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
