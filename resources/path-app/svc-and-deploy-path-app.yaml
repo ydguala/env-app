@@ -41,7 +41,7 @@ spec:
         - name: VERSION
           value: "1.0"
         - name: CLUSTER
-          value: "MAD"
+          value: "GLOBAL"
         - name: APP_NAME
           value: "SIA"
         - name: POD_NAME
