@@ -27,7 +27,7 @@ spec:
       containers:
       - name: env-api-host
         image: ydguala/env-api:latest
-        args: ["POD_NAME", "POD_NAMESPACE", "POD_NODE_NAME","CLUSTER","APP_NAME"]
+        args: ["POD_NAME", "POD_NAMESPACE", "POD_NODE_NAME","APP_NAME"]
         resources:
           requests:
             memory: "64Mi"
