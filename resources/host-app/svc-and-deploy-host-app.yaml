@@ -40,10 +40,8 @@ spec:
         env:
         - name: VERSION
           value: "1.0"
-        - name: CLUSTER
-          value: "MAD"
         - name: APP_NAME
-          value: "IMPACT"
+          value: "ENV-APP"
         - name: POD_NAME
           valueFrom:
             fieldRef:
